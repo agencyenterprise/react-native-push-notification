@@ -33,18 +33,13 @@ public class RNPushNotificationListenerService extends FirebaseMessagingService 
         RemoteMessage.Notification remoteNotification = message.getNotification();
 
         final Bundle bundle = new Bundle();
-        // Putting it from remoteNotification first so it can be overriden if message
-        // data has it
-        if (remoteNotification != null) {
-            // ^ It's null when message is from GCM
-            bundle.putString("title", remoteNotification.getTitle());
-            bundle.putString("message", remoteNotification.getBody());
-        }
 
         for(Map.Entry<String, String> entry : message.getData().entrySet()) {
             bundle.putString(entry.getKey(), entry.getValue());
         }
+
         JSONObject data = getPushData(bundle.getString("data"));
+
         // Copy `twi_body` to `message` to support Twilio
         if (bundle.containsKey("twi_body")) {
             bundle.putString("message", bundle.getString("twi_body"));
@@ -68,6 +63,17 @@ public class RNPushNotificationListenerService extends FirebaseMessagingService 
             if (badge >= 0) {
                 ApplicationBadgeHelper.INSTANCE.setApplicationIconBadgeNumber(this, badge);
             }
+        }
+
+        // NOTE: remoteNotification is last as StreamChat sends an internal key to identify the
+        // sender client with the key "message" inside the "data" object. However, StreamChat allows
+        // just for sending messages through the "notification" object
+        //
+        // Reference: https://firebase.google.com/docs/cloud-messaging/concept-options
+        if (remoteNotification != null) {
+            // ^ It's null when message is from GCM
+            bundle.putString("title", remoteNotification.getTitle());
+            bundle.putString("message", remoteNotification.getBody());
         }
 
         Log.v(LOG_TAG, "onMessageReceived: " + bundle);
