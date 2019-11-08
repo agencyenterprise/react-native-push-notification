@@ -1,8 +1,9 @@
 # React Native Push Notifications
-[![npm version](https://badge.fury.io/js/react-native-push-notification.svg?update=8)](http://badge.fury.io/js/react-native-push-notification)
-[![npm downloads](https://img.shields.io/npm/dm/react-native-push-notification.svg?update=8)](http://badge.fury.io/js/react-native-push-notification)
 
 React Native Local and Remote Notifications for iOS and Android
+
+**Note:** The original implementation is over [zo0r/react-native-push-notification](https://github.com/zo0r/react-native-push-notification). This fork
+is modified in order to better fit a StreamChat push notifications integration.
 
 ## Supported React Native Versions
 | Component Version     | RN Versions    | README     |
@@ -14,7 +15,7 @@ React Native Local and Remote Notifications for iOS and Android
 | **>= 2.1.0**          | **>= 0.33**   | [Open](https://github.com/zo0r/react-native-push-notification/blob/a359e5c00954aa324136eaa9808333d6ca246171/README.md)   |
 
 ## Changelog
-Changelog is available from version 3.1.1 here: [Changelog](https://github.com/zo0r/react-native-push-notification/blob/master/CHANGELOG.md)
+Changelog is available from version 3.1.3 here: [Changelog](https://github.com/zo0r/react-native-push-notification/blob/master/CHANGELOG.md)
 
 ## Installation
 `npm install --save react-native-push-notification` or `yarn add react-native-push-notification`
@@ -312,11 +313,11 @@ PushNotification.cancelLocalNotifications({id: '123'});
 
 Available options:
 
-"max" = NotficationCompat.PRIORITY_MAX  
-"high" = NotficationCompat.PRIORITY_HIGH  
-"low" = NotficationCompat.PRIORITY_LOW  
-"min" = NotficationCompat.PRIORITY_MIN  
-"default" = NotficationCompat.PRIORITY_DEFAULT  
+"max" = NotficationCompat.PRIORITY_MAX
+"high" = NotficationCompat.PRIORITY_HIGH
+"low" = NotficationCompat.PRIORITY_LOW
+"min" = NotficationCompat.PRIORITY_MIN
+"default" = NotficationCompat.PRIORITY_DEFAULT
 
 More information: https://developer.android.com/reference/android/app/Notification.html#PRIORITY_DEFAULT
 
@@ -326,9 +327,9 @@ More information: https://developer.android.com/reference/android/app/Notificati
 
 Available options:
 
-"private" = NotficationCompat.VISIBILITY_PRIVATE  
-"public" = NotficationCompat.VISIBILITY_PUBLIC  
-"secret" = NotficationCompat.VISIBILITY_SECRET  
+"private" = NotficationCompat.VISIBILITY_PRIVATE
+"public" = NotficationCompat.VISIBILITY_PUBLIC
+"secret" = NotficationCompat.VISIBILITY_SECRET
 
 More information: https://developer.android.com/reference/android/app/Notification.html#VISIBILITY_PRIVATE
 
@@ -338,13 +339,13 @@ More information: https://developer.android.com/reference/android/app/Notificati
 
 Available options:
 
-"default" = NotificationManager.IMPORTANCE_DEFAULT  
-"max" = NotificationManager.IMPORTANCE_MAX  
-"high" = NotificationManager.IMPORTANCE_HIGH  
-"low" = NotificationManager.IMPORTANCE_LOW  
-"min" = NotificationManager.IMPORTANCE_MIN  
-"none" = NotificationManager.IMPORTANCE_NONE  
-"unspecified" = NotificationManager.IMPORTANCE_UNSPECIFIED  
+"default" = NotificationManager.IMPORTANCE_DEFAULT
+"max" = NotificationManager.IMPORTANCE_MAX
+"high" = NotificationManager.IMPORTANCE_HIGH
+"low" = NotificationManager.IMPORTANCE_LOW
+"min" = NotificationManager.IMPORTANCE_MIN
+"none" = NotificationManager.IMPORTANCE_NONE
+"unspecified" = NotificationManager.IMPORTANCE_UNSPECIFIED
 
 More information: https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_DEFAULT
 
